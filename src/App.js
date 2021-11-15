@@ -1,8 +1,40 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import LatePayments from './pages/LatePayments';
+import NextPayments from './pages/NextPayments';
+import PaidPayments from './pages/PaidPayments';
+import Summary from './pages/Summary';
+
+const Stack = createStackNavigator();
 
 const App = () => {
-  return <Text>Controle de Mensalidades</Text>;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Summary">
+        <Stack.Screen
+          name="Resumo Financeiro"
+          component={Summary}
+          options={{headerTintColor: 'slateblue'}}
+        />
+        <Stack.Screen
+          name="Próximos Pagamentos"
+          component={NextPayments}
+          options={{headerTintColor: 'slateblue'}}
+        />
+        <Stack.Screen
+          name="Pagamentos Atrazados"
+          component={LatePayments}
+          options={{headerTintColor: 'slateblue'}}
+        />
+        <Stack.Screen
+          name="Pagamentos Realizados"
+          component={PaidPayments}
+          options={{headerTintColor: 'slateblue'}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default App;
