@@ -1,28 +1,37 @@
 import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  FlatList,
-} from 'react-native';
-import database from '../../config/firebaseConfig';
+import {FlatList, View, Text} from 'react-native';
+import {getClients} from '../../services/api';
+import styled from 'styled-components';
+
+const Item = styled.Text`
+  font-size: 25px;
+  color: red;
+`;
 
 const Summary = () => {
   const [clients, setClients] = useState([]);
+  useEffect(() => {
+    setClients(getClients());
+  }, []);
 
-  // useEffect(() => {
-  //   database.collection('clients').onSnapshot(query => {
-  //     const list = [];
-  //     query.forEach(doc => {
-  //       list.push({...doc.data, id: doc.id});
-  //     });
-  //     setClients(list);
-  //   });
-  // }, []);
   return (
     <View>
-      <Text>Resumo financeiro</Text>
+      {clients.length > 0 && (
+        <View>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            data={clients}
+            renderItem={({item}) => {
+              return (
+                <View>
+                  <Item>{item.name}</Item>
+                  <Item>{item.price}</Item>
+                </View>
+              );
+            }}
+          />
+        </View>
+      )}
     </View>
   );
 };
