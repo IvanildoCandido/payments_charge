@@ -11,27 +11,23 @@ const Item = styled.Text`
 const Summary = () => {
   const [clients, setClients] = useState([]);
   useEffect(() => {
-    setClients(getClients());
+    getClients().then(response => setClients(response));
   }, []);
-
   return (
     <View>
-      {clients.length > 0 && (
-        <View>
-          <FlatList
-            showsHorizontalScrollIndicator={false}
-            data={clients}
-            renderItem={({item}) => {
-              return (
-                <View>
-                  <Item>{item.name}</Item>
-                  <Item>{item.price}</Item>
-                </View>
-              );
-            }}
-          />
-        </View>
-      )}
+      <View>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          data={clients}
+          renderItem={({item}) => {
+            return (
+              <View>
+                <Item>{item.name}</Item>
+              </View>
+            );
+          }}
+        />
+      </View>
     </View>
   );
 };
