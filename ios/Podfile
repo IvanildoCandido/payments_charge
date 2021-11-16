@@ -12,6 +12,8 @@ target 'payments_charge' do
     :hermes_enabled => false
   )
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'payments_chargeTests' do
     inherit! :complete
     # Pods for testing
