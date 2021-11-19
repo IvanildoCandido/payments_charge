@@ -1,34 +1,28 @@
-import React, {useState, useEffect} from 'react';
-import {FlatList, View, Text} from 'react-native';
-import {getClients} from '../../services/api';
-import styled from 'styled-components';
-
-const Item = styled.Text`
-  font-size: 25px;
-  color: red;
-`;
+import React from 'react';
+import ServicesInfo from '../../components/ServicesInfo';
 
 const Summary = () => {
-  const [clients, setClients] = useState([]);
-  useEffect(() => {
-    getClients().then(response => setClients(response));
-  }, []);
   return (
-    <View>
-      <View>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          data={clients}
-          renderItem={({item}) => {
-            return (
-              <View>
-                <Item>{item.name}</Item>
-              </View>
-            );
-          }}
-        />
-      </View>
-    </View>
+    <>
+      <ServicesInfo
+        color="blue"
+        title="Total a Vencer"
+        quantity={25}
+        total="R$ 380,00"
+      />
+      <ServicesInfo
+        color="green"
+        title="Total Recebido"
+        quantity={17}
+        total="R$ 760,00"
+      />
+      <ServicesInfo
+        color="red"
+        title="Total Em Atrazo"
+        quantity={13}
+        total="R$ 980,00"
+      />
+    </>
   );
 };
 
