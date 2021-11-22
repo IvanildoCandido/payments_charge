@@ -5,6 +5,7 @@ import LatePayments from './pages/LatePayments';
 import NextPayments from './pages/NextPayments';
 import PaidPayments from './pages/PaidPayments';
 import Summary from './pages/Summary';
+import { colors } from './services/colors';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ const App = () => {
         <Stack.Screen
           name="Resumo Financeiro"
           component={Summary}
-          options={{headerTintColor: 'slateblue'}}
+          options={{headerTintColor: colors.black, headerTitleAlign: 'center'}}
         />
         <Stack.Screen
           name="Próximos Pagamentos"
