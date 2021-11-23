@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../../components/NavBar';
 import ServicesInfo from '../../components/ServicesInfo';
 import {Container, BoxDetails, Title} from '../../pages/Summary/style';
 import {colors} from '../../services/colors';
@@ -72,6 +73,7 @@ const Summary = () => {
             total="R$ 120,00"
           />
         </BoxDetails>
+        <NavBar />
       </Container>
     </>
   );
