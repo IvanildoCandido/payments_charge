@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import NavBar from '../../components/NavBar';
 import {Component, Container, FormBox} from './style';
 import {TextInput} from 'react-native-paper';
-
+import DatePicker from 'react-native-datepicker';
 const NewCustomer = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
+  const [date, setDate] = useState('');
   return (
     <Container>
       <FormBox>
@@ -17,12 +18,19 @@ const NewCustomer = () => {
             onChangeText={name => setName(name)}
           />
         </Component>
-
-        <TextInput
-          mode="outlined"
-          label="Valor"
-          value={price}
-          onChangeText={price => setPrice(price)}
+        <Component>
+          <TextInput
+            mode="outlined"
+            label="Valor"
+            value={price}
+            onChangeText={price => setPrice(price)}
+          />
+        </Component>
+        <DatePicker
+          style={{width: '100%'}}
+          date={date}
+          format="DD/MM/YYYY"
+          onDateChange={date => setDate(date)}
         />
       </FormBox>
 
