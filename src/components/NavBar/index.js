@@ -22,7 +22,9 @@ const NavBar = ({home, day, add, past, next}) => {
           active={next}
         />
       </LinkButton>
-      <MenuIcon source={require('../../assets/icons/add.png')} active={add} />
+      <LinkButton onPress={() => handlePress('Novo Cliente')}>
+        <MenuIcon source={require('../../assets/icons/add.png')} active={add} />
+      </LinkButton>
 
       <LinkButton onPress={() => handlePress('Pagamentos Atrasados')}>
         <MenuIcon
