@@ -16,10 +16,20 @@ const NavBar = ({home, day, add, past, next}) => {
           active={home}
         />
       </LinkButton>
-      <MenuIcon source={require('../../assets/icons/next.png')} active={next} />
+      <LinkButton onPress={() => handlePress('Pagamentos Futuros')}>
+        <MenuIcon
+          source={require('../../assets/icons/next.png')}
+          active={next}
+        />
+      </LinkButton>
       <MenuIcon source={require('../../assets/icons/add.png')} active={add} />
-      <MenuIcon source={require('../../assets/icons/past.png')} active={past} />
-      <LinkButton></LinkButton>
+
+      <LinkButton onPress={() => handlePress('Pagamentos Atrasados')}>
+        <MenuIcon
+          source={require('../../assets/icons/past.png')}
+          active={past}
+        />
+      </LinkButton>
       <LinkButton onPress={() => handlePress('Vencimentos Recebidos')}>
         <MenuIcon source={require('../../assets/icons/day.png')} active={day} />
       </LinkButton>

@@ -1,11 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text} from 'react-native';
+import NavBar from '../../components/NavBar';
+import {Container} from './style';
 
 const NextPayments = () => {
   return (
-    <View>
+    <Container>
       <Text>Próximos Pagamentos</Text>
-    </View>
+      <NavBar next={true} />
+    </Container>
   );
 };
 
