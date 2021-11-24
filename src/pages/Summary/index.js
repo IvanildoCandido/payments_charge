@@ -73,7 +73,7 @@ const Summary = () => {
             total="R$ 120,00"
           />
         </BoxDetails>
-        <NavBar />
+        <NavBar home={true} />
       </Container>
     </>
   );

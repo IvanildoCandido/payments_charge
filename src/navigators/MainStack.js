@@ -1,10 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Summary from '../pages/Summary';
-import { colors } from '../services/colors';
+import PaidPayments from '../pages/PaidPayments';
+import {colors} from '../services/colors';
 const Stack = createStackNavigator();
 
-const SummaryStack = () => {
+const MainStack = () => {
   return (
     <Stack.Navigator initialRouteName="Summary">
       <Stack.Screen
@@ -12,8 +13,13 @@ const SummaryStack = () => {
         component={Summary}
         options={{headerTintColor: colors.black, headerTitleAlign: 'center'}}
       />
+      <Stack.Screen
+        name="Vencimentos Recebidos"
+        component={PaidPayments}
+        options={{headerTintColor: colors.black, headerTitleAlign: 'center'}}
+      />
     </Stack.Navigator>
   );
 };
 
-export default SummaryStack;
+export default MainStack;

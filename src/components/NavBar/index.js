@@ -1,21 +1,28 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
-import {Container, MenuIcon} from './style';
+import {Container, LinkButton, MenuIcon} from './style';
 
-const NavBar = () => {
+const NavBar = ({home, day, add, past, next}) => {
+  const navigation = useNavigation();
+  const handlePress = page => {
+    navigation.navigate(page);
+  };
   return (
     <Container>
-      <MenuIcon source={require('../../assets/icons/home.png')} active={true} />
-      <MenuIcon
-        source={require('../../assets/icons/next.png')}
-        active={false}
-      />
-      <MenuIcon source={require('../../assets/icons/add.png')} active={false} />
-      <MenuIcon
-        source={require('../../assets/icons/past.png')}
-        active={false}
-      />
-      <MenuIcon source={require('../../assets/icons/day.png')} active={false} />
+      <LinkButton onPress={() => handlePress('Resumo Financeiro')}>
+        <MenuIcon
+          source={require('../../assets/icons/home.png')}
+          active={home}
+        />
+      </LinkButton>
+      <MenuIcon source={require('../../assets/icons/next.png')} active={next} />
+      <MenuIcon source={require('../../assets/icons/add.png')} active={add} />
+      <MenuIcon source={require('../../assets/icons/past.png')} active={past} />
+      <LinkButton></LinkButton>
+      <LinkButton onPress={() => handlePress('Vencimentos Recebidos')}>
+        <MenuIcon source={require('../../assets/icons/day.png')} active={day} />
+      </LinkButton>
     </Container>
   );
 };
