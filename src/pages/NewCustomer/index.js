@@ -6,7 +6,7 @@ import DatePicker from 'react-native-datepicker';
 const NewCustomer = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(new Date());
   return (
     <Container>
       <FormBox>
@@ -27,10 +27,23 @@ const NewCustomer = () => {
           />
         </Component>
         <DatePicker
-          style={{width: '100%'}}
+          style={{width: '100%', height: 50}}
           date={date}
           format="DD/MM/YYYY"
           onDateChange={date => setDate(date)}
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 10,
+              marginLeft: 0,
+            },
+            dateInput: {
+              marginLeft: 36,
+              height: 55,
+              marginTop: 15
+            },
+          }}
         />
       </FormBox>
 
