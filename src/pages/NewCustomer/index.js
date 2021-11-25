@@ -3,6 +3,7 @@ import NavBar from '../../components/NavBar';
 import {Component, Container, FormBox} from './style';
 import {TextInput} from 'react-native-paper';
 import DatePicker from 'react-native-datepicker';
+import SelectItem from '../../components/SelectItem';
 const NewCustomer = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -41,10 +42,11 @@ const NewCustomer = () => {
             dateInput: {
               marginLeft: 36,
               height: 55,
-              marginTop: 15
+              marginTop: 15,
             },
           }}
         />
+        <SelectItem />
       </FormBox>
 
       <NavBar add={true} />
