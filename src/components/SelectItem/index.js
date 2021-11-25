@@ -14,7 +14,8 @@ const SelectItem = () => {
           width: '100%',
         }}
         textInputProps={{
-          backgroundColor: colors.lightcoral,
+          backgroundColor: colors.deepskyblue,
+          fontSize: 16,
           borderRadius: 10,
           color: 'white',
           fontWeight: 'bold',
