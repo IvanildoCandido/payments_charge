@@ -8,6 +8,11 @@ const NewCustomer = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [date, setDate] = useState(new Date());
+  const items = [
+    {label: 'NATV', value: 'NATV'},
+    {label: 'NEON', value: 'NEON'},
+    {label: 'PHCS', value: 'PHCS'},
+  ];
   return (
     <Container>
       <FormBox>
@@ -46,7 +51,8 @@ const NewCustomer = () => {
             },
           }}
         />
-        <SelectItem />
+        <SelectItem items={items} label="Selecione um serviço" />
+        <SelectItem items={items} label="Tipo de repetição" />
       </FormBox>
 
       <NavBar add={true} />
