@@ -10,3 +10,7 @@ export const FormBox = styled.View`
 export const Component = styled.View`
   margin-bottom: 10px;
 `;
+export const AreaButtons = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;

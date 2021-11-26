@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import NavBar from '../../components/NavBar';
-import {Component, Container, FormBox} from './style';
+import {AreaButtons, Component, Container, FormBox} from './style';
 import {TextInput} from 'react-native-paper';
 import DatePicker from 'react-native-datepicker';
 import SelectItem from '../../components/SelectItem';
+import ButtonAction from '../../components/ButtonAction';
+import {colors} from '../../services/colors';
 const NewCustomer = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -53,6 +55,18 @@ const NewCustomer = () => {
         />
         <SelectItem items={items} label="Selecione um serviço" />
         <SelectItem items={items} label="Tipo de repetição" />
+        <AreaButtons>
+          <ButtonAction
+            bgColor={colors.lightcoral}
+            txtColor={colors.black}
+            label="Cancelar"
+          />
+          <ButtonAction
+            bgColor={colors.royalblue}
+            txtColor={colors.white}
+            label="Salvar"
+          />
+        </AreaButtons>
       </FormBox>
 
       <NavBar add={true} />
