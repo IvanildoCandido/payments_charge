@@ -6,14 +6,23 @@ import DatePicker from 'react-native-datepicker';
 import SelectItem from '../../components/SelectItem';
 import ButtonAction from '../../components/ButtonAction';
 import {colors} from '../../services/colors';
+import {addClient} from '../../services/api';
+
 const NewCustomer = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [date, setDate] = useState(new Date());
-  const items = [
+  const [service, setService] = useState('');
+  const [repeat, setRepeat] = useState('');
+
+  const serviceItems = [
     {label: 'NATV', value: 'NATV'},
     {label: 'NEON', value: 'NEON'},
     {label: 'PHCS', value: 'PHCS'},
+  ];
+  const repeatTypes = [
+    {label: 'MENSALMENTE', value: 'MONTH'},
+    {label: 'BIMESTRALMENTE', value: 'BIMONTH'},
   ];
   return (
     <Container>
@@ -53,8 +62,16 @@ const NewCustomer = () => {
             },
           }}
         />
-        <SelectItem items={items} label="Selecione um serviço" />
-        <SelectItem items={items} label="Tipo de repetição" />
+        <SelectItem
+          items={serviceItems}
+          label="Selecione um serviço"
+          setItem={setService}
+        />
+        <SelectItem
+          items={repeatTypes}
+          label="Tipo de repetição"
+          setItem={setRepeat}
+        />
         <AreaButtons>
           <ButtonAction
             bgColor={colors.lightcoral}
@@ -65,6 +82,7 @@ const NewCustomer = () => {
             bgColor={colors.royalblue}
             txtColor={colors.white}
             label="Salvar"
+            action={() => addClient({name, price, date, service, repeat})}
           />
         </AreaButtons>
       </FormBox>

@@ -4,7 +4,7 @@ import ServiceType from 'react-native-picker-select';
 
 import {AddSelect, Container, LinkButton} from './style';
 
-const SelectItem = ({items, label}) => {
+const SelectItem = ({items, label, setItem}) => {
   return (
     <Container>
       <ServiceType
@@ -23,11 +23,11 @@ const SelectItem = ({items, label}) => {
           textAlign: 'center',
         }}
         useNativeAndroidPickerStyle={false}
-        onValueChange={value => console.log(value)}
+        onValueChange={value => setItem(value)}
         placeholder={{label: label, color: 'white'}}
         items={items}
       />
-      <LinkButton onPress={() => alert('OK')}>
+      <LinkButton onPress={() => {}}>
         <AddSelect source={require('../../assets/icons/add.png')} />
       </LinkButton>
     </Container>
