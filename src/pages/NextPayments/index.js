@@ -7,7 +7,16 @@ import {Container} from './style';
 const NextPayments = () => {
   return (
     <Container>
-      <ListItem />
+      <ListItem
+        data={{
+          date: '25',
+          day: 'TER',
+          service: 'NATV',
+          client: 'Italo Serra Branca',
+          status: 'Vencendo hoje!',
+          price: 'R$ 25,00',
+        }}
+      />
       <NavBar next={true} />
     </Container>
   );

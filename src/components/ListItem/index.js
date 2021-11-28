@@ -13,21 +13,21 @@ import {
   DataInfo,
 } from './style';
 
-const ListItem = () => {
+const ListItem = ({data: {date, day, service, client, status, price}}) => {
   return (
     <Container>
       <DataInfo>
         <BoxDate>
-          <DateText>25</DateText>
-          <DayText>QUA</DayText>
+          <DateText>{date}</DateText>
+          <DayText>{day}</DayText>
         </BoxDate>
         <InfoArea>
-          <ServiceText>NATV</ServiceText>
-          <ClientText>Ítalo Serra Branca</ClientText>
-          <StatusText>Vencendo hoje!</StatusText>
+          <ServiceText>{service}</ServiceText>
+          <ClientText>{client}</ClientText>
+          <StatusText>{status}</StatusText>
         </InfoArea>
       </DataInfo>
-      <PriceInfo>R$ 25,00</PriceInfo>
+      <PriceInfo>{price}</PriceInfo>
     </Container>
   );
 };
