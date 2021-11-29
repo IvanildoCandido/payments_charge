@@ -1,6 +1,6 @@
 module.exports = {
   weekDay: date => {
-    const dateInfo = new Date(date);
+    const dateInfo = new Date(date.split('/').reverse().join('-'));
     const day = dateInfo.getDay();
     const days = ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB', 'DOM'];
     return days[day];

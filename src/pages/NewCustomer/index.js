@@ -7,6 +7,7 @@ import SelectItem from '../../components/SelectItem';
 import ButtonAction from '../../components/ButtonAction';
 import {colors} from '../../services/colors';
 import {addClient} from '../../services/api';
+import {useNavigation} from '@react-navigation/native';
 
 const NewCustomer = () => {
   const [name, setName] = useState('');
@@ -14,6 +15,7 @@ const NewCustomer = () => {
   const [date, setDate] = useState(new Date());
   const [service, setService] = useState('');
   const [repeat, setRepeat] = useState('');
+  const navigation = useNavigation();
 
   const serviceItems = [
     {label: 'NATV', value: 'NATV'},
@@ -24,6 +26,10 @@ const NewCustomer = () => {
     {label: 'MENSALMENTE', value: 'MONTH'},
     {label: 'BIMESTRALMENTE', value: 'BIMONTH'},
   ];
+  const handleAddClient = page => {
+    addClient({name, price, date, service, repeat});
+    navigation.navigate(page);
+  };
   return (
     <Container>
       <FormBox>
@@ -82,7 +88,7 @@ const NewCustomer = () => {
             bgColor={colors.royalblue}
             txtColor={colors.white}
             label="Salvar"
-            action={() => addClient({name, price, date, service, repeat})}
+            action={() => handleAddClient('Resumo Financeiro')}
           />
         </AreaButtons>
       </FormBox>
