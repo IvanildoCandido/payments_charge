@@ -46,7 +46,7 @@ const NewCustomer = () => {
         <DatePicker
           style={{width: '100%', height: 50}}
           date={date}
-          format="YYYY-MM-DD"
+          format="DD/MM/YYYY"
           onDateChange={date => setDate(date)}
           customStyles={{
             dateIcon: {

@@ -10,7 +10,6 @@ const NextPayments = () => {
   const [clients, setClients] = useState([]);
   useEffect(() => {
     getClients().then(response => setClients(response));
-    console.log(priceFormat('28.34'));
   }, []);
   return (
     <Container>
