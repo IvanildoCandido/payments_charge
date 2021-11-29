@@ -13,7 +13,7 @@ import {
   DataInfo,
 } from './style';
 
-const ListItem = ({data: {date, day, service, client, status, price}}) => {
+const ListItem = ({data: {date, day, service, name, status, price}}) => {
   return (
     <Container>
       <DataInfo>
@@ -23,7 +23,7 @@ const ListItem = ({data: {date, day, service, client, status, price}}) => {
         </BoxDate>
         <InfoArea>
           <ServiceText>{service}</ServiceText>
-          <ClientText>{client}</ClientText>
+          <ClientText>{name}</ClientText>
           <StatusText>{status}</StatusText>
         </InfoArea>
       </DataInfo>
