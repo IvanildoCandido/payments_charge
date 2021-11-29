@@ -1,3 +1,4 @@
+import moment from 'moment';
 module.exports = {
   weekDay: date => {
     const dateInfo = new Date(date.split('/').reverse().join('-'));
@@ -10,5 +11,11 @@ module.exports = {
       style: 'currency',
       currency: 'BRL',
     }).format(price);
+  },
+  statusDaysOf: date => {
+    const diff = moment('29/11/2021', 'DD/MM/YYYY').diff(
+      moment(date, 'DD/MM/YYYY'),
+    );
+    return moment.duration(diff).asDays();
   },
 };

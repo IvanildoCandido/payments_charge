@@ -1,4 +1,4 @@
-import {weekDay, priceFormat} from './dateCurrency';
+import {weekDay, priceFormat, statusDaysOf} from './dateCurrency';
 
 module.exports = {
   listItemFormat: item => {
@@ -7,7 +7,7 @@ module.exports = {
       day: weekDay(item.date),
       service: item.service,
       name: item.name,
-      status: 'Vencendo hoje!',
+      status: statusDaysOf(item.date),
       price: priceFormat(item.price),
     };
   },
