@@ -1,5 +1,3 @@
-const {ProgressBarAndroidComponent} = require('react-native');
-
 module.exports = {
   weekDay: date => {
     const dateInfo = new Date(date);
@@ -8,10 +6,9 @@ module.exports = {
     return days[day];
   },
   priceFormat: price => {
-    const formatedPrice = price.toLocaleString('ja-JP', {
+    return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
-      currency: 'JPY',
-    });
-    return formatedPrice;
+      currency: 'BRL',
+    }).format(price);
   },
 };
