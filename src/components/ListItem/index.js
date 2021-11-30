@@ -14,10 +14,11 @@ import {
 } from './style';
 
 const ListItem = ({
-  data: {date, day, service, name, status, price, actionItem},
+  actionItem,
+  data: {date, day, service, name, status, price},
 }) => {
   return (
-    <Container onPress={actionItem}>
+    <Container onPress={() => actionItem(true)}>
       <DataInfo>
         <BoxDate>
           <DateText>{date}</DateText>

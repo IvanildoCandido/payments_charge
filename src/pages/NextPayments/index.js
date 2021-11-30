@@ -13,6 +13,7 @@ const NextPayments = () => {
   const [loading, setLoading] = useState(true);
   const [month, setMonth] = useState('');
   const [visible, setVisible] = useState(false);
+
   const monthItems = [
     {label: 'JANEIRO', value: 1},
     {label: 'FEVEREIRO', value: 2},
@@ -42,10 +43,12 @@ const NextPayments = () => {
       {clients.length > 0 && (
         <ListNext
           data={clients}
-          renderItem={({item}) => <ListItem data={listItemFormat(item)} />}
+          renderItem={({item}) => (
+            <ListItem data={listItemFormat(item)} actionItem={setVisible} />
+          )}
         />
       )}
-      <ActionsModal visible={visible} />
+      <ActionsModal visible={visible} setVisible={setVisible} />
       <NavBar next={true} />
     </Container>
   );
