@@ -13,9 +13,19 @@ module.exports = {
     }).format(price);
   },
   statusDaysOf: date => {
-    const diff = moment('29/11/2021', 'DD/MM/YYYY').diff(
-      moment(date, 'DD/MM/YYYY'),
+    const today = new Date();
+    const diff = moment(date, 'DD/MM/YYYY').diff(
+      moment(today.toLocaleDateString('pt-BR'), 'DD/MM/YYYY'),
     );
-    return moment.duration(diff).asDays();
+    const days = moment.duration(diff).asDays();
+    let result = '';
+    if (days === 0) {
+      result = 'Vencendo hoje!';
+    } else if (days === 1) {
+      result = 'Vencendo em 1 dia';
+    } else {
+      result = `Vencendo em ${days} dias`;
+    }
+    return result;
   },
 };

@@ -3,7 +3,7 @@ import {weekDay, priceFormat, statusDaysOf} from './dateCurrency';
 module.exports = {
   listItemFormat: item => {
     return {
-      date: item.date.substring(10, 8),
+      date: item.date.substring(0, 2),
       day: weekDay(item.date),
       service: item.service,
       name: item.name,
