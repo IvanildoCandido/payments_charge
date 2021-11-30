@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {colors} from '../../services/colors';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;

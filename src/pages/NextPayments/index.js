@@ -6,11 +6,13 @@ import {Container, ListNext} from './style';
 import {listItemFormat} from '../../services/utils';
 import Loader from '../../components/Loader';
 import SelectItem from '../../components/SelectItem';
+import ActionsModal from '../../components/ActionsModal';
 
 const NextPayments = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
   const [month, setMonth] = useState('');
+  const [visible, setVisible] = useState(false);
   const monthItems = [
     {label: 'JANEIRO', value: 1},
     {label: 'FEVEREIRO', value: 2},
@@ -43,6 +45,7 @@ const NextPayments = () => {
           renderItem={({item}) => <ListItem data={listItemFormat(item)} />}
         />
       )}
+      <ActionsModal visible={visible} />
       <NavBar next={true} />
     </Container>
   );

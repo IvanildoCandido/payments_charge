@@ -10,9 +10,10 @@ import {addClient} from '../../services/api';
 import {useNavigation} from '@react-navigation/native';
 
 const NewCustomer = () => {
+  const today = new Date();
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(today.toLocaleDateString('pt-BR'));
   const [service, setService] = useState('');
   const [repeat, setRepeat] = useState('');
   const navigation = useNavigation();

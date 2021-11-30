@@ -4,7 +4,7 @@ export const Container = styled.View`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 5px;
   padding: 5px;
 `;
 export const AddSelect = styled.Image`

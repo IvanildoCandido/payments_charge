@@ -9,7 +9,6 @@ const SelectItem = ({items, label, setItem, readOnly}) => {
     <Container>
       <ServiceType
         style={{
-          border: '1px solid red',
           height: '100%',
           width: '100%',
         }}

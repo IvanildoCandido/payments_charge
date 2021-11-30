@@ -13,9 +13,11 @@ import {
   DataInfo,
 } from './style';
 
-const ListItem = ({data: {date, day, service, name, status, price}}) => {
+const ListItem = ({
+  data: {date, day, service, name, status, price, actionItem},
+}) => {
   return (
-    <Container>
+    <Container onPress={actionItem}>
       <DataInfo>
         <BoxDate>
           <DateText>{date}</DateText>
