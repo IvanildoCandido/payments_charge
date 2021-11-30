@@ -10,10 +10,16 @@ const NextPayments = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    let isMounted = true;
     getClients().then(response => {
-      setClients(response);
-      setLoading(false);
+      if (isMounted) {
+        setClients(response);
+        setLoading(false);
+      }
     });
+    return () => {
+      isMounted = false;
+    };
   }, []);
   return (
     <Container>
