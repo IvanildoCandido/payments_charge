@@ -88,7 +88,7 @@ const NewCustomer = () => {
             bgColor={colors.royalblue}
             txtColor={colors.white}
             label="Salvar"
-            action={() => handleAddClient('Resumo Financeiro')}
+            action={() => handleAddClient('Pagamentos Futuros')}
           />
         </AreaButtons>
       </FormBox>

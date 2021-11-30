@@ -5,10 +5,17 @@ import NavBar from '../../components/NavBar';
 import {Container, ListNext} from './style';
 import {listItemFormat} from '../../services/utils';
 import Loader from '../../components/Loader';
+import SelectItem from '../../components/SelectItem';
 
 const NextPayments = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [month, setMonth] = useState('');
+  const monthItems = [
+    {label: 'JANEIRO', value: 1},
+    {label: 'FEVEREIRO', value: 2},
+    {label: 'MARÇO', value: 3},
+  ];
   useEffect(() => {
     let isMounted = true;
     getClients().then(response => {
@@ -23,6 +30,12 @@ const NextPayments = () => {
   }, []);
   return (
     <Container>
+      <SelectItem
+        items={monthItems}
+        label="Selecione o mês"
+        setItem={setMonth}
+        readOnly={true}
+      />
       {loading && <Loader />}
       {clients.length > 0 && (
         <ListNext
