@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {getClients} from '../../services/api';
 import ListItem from '../../components/ListItem';
 import NavBar from '../../components/NavBar';
@@ -7,12 +7,13 @@ import {listItemFormat} from '../../services/utils';
 import Loader from '../../components/Loader';
 import SelectItem from '../../components/SelectItem';
 import ActionsModal from '../../components/ActionsModal';
+import ModalContext from '../../contexts/ModalContext';
 
 const NextPayments = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
   const [month, setMonth] = useState('');
-  const [visible, setVisible] = useState(false);
+  const {visible, setVisible} = useContext(ModalContext);
 
   const monthItems = [
     {label: 'JANEIRO', value: 1},

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import ModalContext from '../../contexts/ModalContext';
 
 import {
   BoxDate,
@@ -13,12 +14,10 @@ import {
   DataInfo,
 } from './style';
 
-const ListItem = ({
-  actionItem,
-  data: {date, day, service, name, status, price},
-}) => {
+const ListItem = ({data: {date, day, service, name, status, price}}) => {
+  const {setVisible} = useContext(ModalContext);
   return (
-    <Container onPress={() => actionItem(true)}>
+    <Container onPress={() => setVisible(true)}>
       <DataInfo>
         <BoxDate>
           <DateText>{date}</DateText>

@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Modal, Portal, Button, Provider} from 'react-native-paper';
+import {Modal, Portal, Provider} from 'react-native-paper';
 import {colors} from '../../services/colors';
 import ButtonAction from '../ButtonAction';
 import {ButtonArea, Container, Title} from './style';
+import ModalContext from '../../contexts/ModalContext';
 
-const ActionsModal = ({visible, setVisible}) => {
-  const showModal = () => setVisible(true);
-  const hideModal = () => setVisible(false);
+const ActionsModal = () => {
+  const {visible, setVisible} = React.useContext(ModalContext);
   const containerStyle = {backgroundColor: 'white', padding: 20};
 
   return (
@@ -14,7 +14,7 @@ const ActionsModal = ({visible, setVisible}) => {
       <Portal>
         <Modal
           visible={visible}
-          onDismiss={hideModal}
+          onDismiss={() => setVisible(false)}
           contentContainerStyle={containerStyle}>
           <Container>
             <Title>Ações disponíveis:</Title>
@@ -23,13 +23,13 @@ const ActionsModal = ({visible, setVisible}) => {
                 bgColor={colors.sandybrown}
                 txtColor={colors.black}
                 label="Voltar"
-                action={hideModal}
+                action={() => {}}
               />
               <ButtonAction
                 bgColor={colors.lightcoral}
                 txtColor={colors.black}
                 label="Excluir"
-                action={hideModal}
+                action={() => {}}
               />
             </ButtonArea>
             <ButtonArea>
@@ -37,13 +37,13 @@ const ActionsModal = ({visible, setVisible}) => {
                 bgColor={colors.deepskyblue}
                 txtColor={colors.black}
                 label="Editar"
-                action={hideModal}
+                action={() => {}}
               />
               <ButtonAction
                 bgColor={colors.royalblue}
                 txtColor={colors.black}
                 label="Marcar Paga"
-                action={hideModal}
+                action={() => {}}
               />
             </ButtonArea>
           </Container>
