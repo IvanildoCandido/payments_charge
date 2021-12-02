@@ -45,11 +45,7 @@ const NextPayments = () => {
         <ListNext
           data={clients}
           renderItem={({item}) => (
-            <ListItem
-              data={listItemFormat(item)}
-              actionItem={setVisible}
-              id={item.id}
-            />
+            <ListItem data={listItemFormat(item)} actionItem={setVisible} id={item.id} />
           )}
         />
       )}

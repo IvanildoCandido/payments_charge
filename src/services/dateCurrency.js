@@ -10,7 +10,9 @@ module.exports = {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-    }).format(price);
+    })
+      .format(price)
+      .replace('.', ',');
   },
   statusDaysOf: date => {
     const today = new Date();
