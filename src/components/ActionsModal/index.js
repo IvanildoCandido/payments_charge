@@ -2,11 +2,11 @@ import * as React from 'react';
 import {Modal, Portal, Provider} from 'react-native-paper';
 import {colors} from '../../services/colors';
 import ButtonAction from '../ButtonAction';
-import {ButtonArea, Container, Title} from './style';
+import {ButtonArea, ClientName, Container, Title} from './style';
 import ModalContext from '../../contexts/ModalContext';
 
-const ActionsModal = () => {
-  const {visible, setVisible} = React.useContext(ModalContext);
+const ActionsModal = ({id}) => {
+  const {visible, setVisible, selected} = React.useContext(ModalContext);
   const containerStyle = {backgroundColor: 'white', padding: 20};
 
   return (
@@ -18,6 +18,7 @@ const ActionsModal = () => {
           contentContainerStyle={containerStyle}>
           <Container>
             <Title>Ações disponíveis:</Title>
+            <ClientName>{selected.name}</ClientName>
             <ButtonArea>
               <ButtonAction
                 bgColor={colors.sandybrown}

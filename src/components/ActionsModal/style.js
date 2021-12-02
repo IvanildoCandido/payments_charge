@@ -8,6 +8,12 @@ export const Title = styled.Text`
   font-weight: bold;
   margin-bottom: 10px;
 `;
+export const ClientName = styled.Text`
+  color: ${colors.royalblue};
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+`;
 export const ButtonArea = styled.View`
   flex-direction: row;
 `;

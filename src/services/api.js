@@ -5,7 +5,9 @@ module.exports = {
   getClients: async () => {
     const clients = collection(database, 'clients');
     const clientsSnapshot = await getDocs(clients);
-    const clientsList = await clientsSnapshot.docs.map(doc => doc.data());
+    const clientsList = await clientsSnapshot.docs.map(doc => {
+      return {...doc.data(), id: doc.id};
+    });
     return clientsList;
   },
   addClient: async client => {

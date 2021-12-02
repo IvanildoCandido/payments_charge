@@ -14,10 +14,14 @@ import {
   DataInfo,
 } from './style';
 
-const ListItem = ({data: {date, day, service, name, status, price}}) => {
-  const {setVisible} = useContext(ModalContext);
+const ListItem = ({data: {date, day, service, name, status, price, id}}) => {
+  const {setVisible, setSelected} = useContext(ModalContext);
   return (
-    <Container onPress={() => setVisible(true)}>
+    <Container
+      onPress={() => {
+        setSelected({id, name});
+        setVisible(true);
+      }}>
       <DataInfo>
         <BoxDate>
           <DateText>{date}</DateText>
