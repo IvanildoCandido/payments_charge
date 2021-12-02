@@ -28,7 +28,7 @@ const NewCustomer = () => {
     {label: 'BIMESTRALMENTE', value: 'BIMONTH'},
   ];
   const handleAddClient = page => {
-    addClient({name, price, date, service, repeat});
+    addClient({name, price, date, service, repeat, paymentStatus: 'INTIME'});
     navigation.navigate(page);
   };
   return (

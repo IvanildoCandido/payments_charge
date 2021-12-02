@@ -1,6 +1,5 @@
 import {weekDay, priceFormat, statusDaysOf} from './dateCurrency';
 import {getClients} from '../services/api';
-import {parse} from '@babel/core';
 
 module.exports = {
   listItemFormat: item => {
@@ -12,6 +11,7 @@ module.exports = {
       name: item.name,
       status: statusDaysOf(item.date),
       price: priceFormat(item.price),
+      paymentStatus: 'INTIME',
     };
   },
   totalNextPayments: async () => {
