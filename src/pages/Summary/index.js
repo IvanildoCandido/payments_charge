@@ -41,7 +41,7 @@ const Summary = () => {
               />
               <ServicesInfo
                 color={colors.lightcoral}
-                title="Total Em Atrazo"
+                title="Total Em Atraso"
                 colorCount={colors.black}
                 quantity={monthActual.lostCount}
                 total={priceFormat(monthActual.lost)}
