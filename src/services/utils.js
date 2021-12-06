@@ -17,7 +17,15 @@ module.exports = {
   totalNextPayments: async () => {
     const payments = await getClients();
     const total = payments.reduce((acc, item) => acc + Number(item.price), 0);
+    let paidCount = 0;
+    const paid = payments.reduce((acc, item) => {
+      if (item.paymentStatus === 'PAID') {
+        paidCount += 1;
+        return acc + Number(item.price);
+      } else return 0;
+    }, 0);
+
     const paymentsCount = payments.length;
-    return {paymentsCount, total};
+    return {paymentsCount, total, paid, paidCount};
   },
 };

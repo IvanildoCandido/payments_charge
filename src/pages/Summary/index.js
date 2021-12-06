@@ -36,8 +36,8 @@ const Summary = () => {
                 color={colors.deepskyblue}
                 title="Total Recebido"
                 colorCount={colors.black}
-                quantity={17}
-                total="R$ 760,00"
+                quantity={monthActual.paidCount}
+                total={priceFormat(monthActual.paid)}
               />
               <ServicesInfo
                 color={colors.lightcoral}
