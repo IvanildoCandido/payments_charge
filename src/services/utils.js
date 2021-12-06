@@ -16,16 +16,27 @@ module.exports = {
   },
   totalNextPayments: async () => {
     const payments = await getClients();
-    const total = payments.reduce((acc, item) => acc + Number(item.price), 0);
     let paidCount = 0;
+    let nextCount = 0;
+    let lostCount = 0;
+    const total = payments.reduce((acc, item) => {
+      if (item.paymentStatus === 'INTIME') {
+        nextCount += 1;
+        return acc + Number(item.price);
+      } else return acc;
+    }, 0);
     const paid = payments.reduce((acc, item) => {
       if (item.paymentStatus === 'PAID') {
         paidCount += 1;
         return acc + Number(item.price);
-      } else return 0;
+      } else return acc;
     }, 0);
-
-    const paymentsCount = payments.length;
-    return {paymentsCount, total, paid, paidCount};
+    const lost = payments.reduce((acc, item) => {
+      if (item.paymentStatus === 'LOST') {
+        lostCount += 1;
+        return acc + Number(item.price);
+      } else return acc;
+    }, 0);
+    return {nextCount, total, paid, paidCount, lost, lostCount};
   },
 };

@@ -29,7 +29,7 @@ const Summary = () => {
                 color={colors.sandybrown}
                 title="Total a Vencer"
                 colorCount={colors.black}
-                quantity={monthActual.paymentsCount}
+                quantity={monthActual.nextCount}
                 total={priceFormat(monthActual.total)}
               />
               <ServicesInfo
@@ -43,8 +43,8 @@ const Summary = () => {
                 color={colors.lightcoral}
                 title="Total Em Atrazo"
                 colorCount={colors.black}
-                quantity={13}
-                total="R$ 980,00"
+                quantity={monthActual.lostCount}
+                total={priceFormat(monthActual.lost)}
               />
             </BoxDetails>
             <BoxDetails>
